@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'  # 兼容工具所有版本
-          cache: 'npm'  # 缓存本地依赖，加速后续安装
+          # cache: 'npm'  # 缓存本地依赖，加速后续安装
 
       # 步骤3：初始化 NPM 项目（自动生成 package.json，为本地装工具用）
       - name: 初始化 NPM 项目（无需手动操作）
