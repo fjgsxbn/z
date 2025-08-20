@@ -29,7 +29,7 @@ jobs:
       - name: 本地执行 JS 反混淆
         run: |
           # 🔔 必须修改：替换为你仓库中待反混淆的 JS 文件路径
-          INPUT_FILE="./obfuscated.js"  
+          INPUT_FILE="./a.js"  
           # 🔔 可选修改：自定义反混淆后的输出文件路径
           OUTPUT_FILE="./obfuscated.cleaned.js"  
 
