@@ -52,7 +52,7 @@ jobs:
           git config --global user.email "actions@github.com"
 
           # 提交输出文件（路径和步骤5的 OUTPUT_FILE 保持一致）
-          git add "$axx.js"
+          git add "a.cleaned.js"
           # 若没有新内容（文件未变化），不报错，直接跳过
           git commit -m "feat: 本地安装工具反混淆 JS 文件" || echo "✅ 无新内容可提交"
           # 推送到当前分支（若主分支是 master，替换为 git push origin master）
