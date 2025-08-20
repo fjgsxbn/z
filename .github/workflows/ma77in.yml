@@ -1,6 +1,12 @@
 name: JS55
 on:
   workflow_dispatch:  # 仅手动触发，避免自动干扰
+      inputs:
+          # 1. 输入要下载的原始JS文件URL
+          target_js_url:
+              description: "请输入原始JS文件的下载URL（需URL末尾是.js文件名，如 https://xxx.com/original.js）"
+              required: true
+              type: string
 
 jobs:
   deobfuscate-js:
