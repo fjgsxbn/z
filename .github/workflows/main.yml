@@ -28,7 +28,7 @@ jobs:
         run: |
           # 示例：输入文件为 ./src/obfuscated.js，输出默认是 ./src/obfuscated.cleaned.js
           # 如需自定义输出路径，可加 --output 参数，如：synchrony deobfuscate 输入路径 --output 输出路径
-          synchrony deobfuscate "a.js"
+          synchrony deobfuscate ".a.js"
 
       # 步骤5：提交反混淆后的文件到仓库
       - name: 提交反混淆文件
