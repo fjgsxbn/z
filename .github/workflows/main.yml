@@ -23,7 +23,7 @@ jobs:
 
       # 步骤4：本地安装反混淆工具（装到项目 node_modules，不全局）
       - name: 本地安装 javascript-deobfuscator
-        run: npm install javascript-deobfuscator  # 无 --global，纯本地安装
+        run: npm install deobfuscator  # 无 --global，纯本地安装
 
       # 步骤5：执行反混淆（用本地命令，100% 能找到）
       - name: 本地执行 JS 反混淆
