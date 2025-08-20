@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'  # 缓存依赖，加速安装
+          # cache: 'npm'  # 缓存依赖，加速安装
 
       # 步骤3：全局安装 deobfuscator（relative/synchrony 工具）
       - name: 安装 deobfuscator 工具
