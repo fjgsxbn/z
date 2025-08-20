@@ -44,6 +44,7 @@ jobs:
            echo "已下载原始JS文件：$RAW_JS_FILENAME"
            NEW_JS_FILENAME="${RAW_JS_FILENAME%.js}.cleaned.js"
            echo "按规律自动生成新文件名：$NEW_JS_FILENAME"
+           echo "NEW_JS_FILENAME=$NEW_JS_FILENAME" >> "$GITHUB_ENV"
 
            
          
