@@ -1,0 +1,50 @@
+name: JS 反混淆并提交到仓库
+on:
+  # 仅保留“手动触发”，删除代码推送触发
+  workflow_dispatch:  # 在 GitHub 仓库“Actions”页面手动点击运行
+
+jobs:
+  deobfuscate-js:
+    runs-on: ubuntu-latest
+    steps:
+      # 步骤1：拉取当前 GitHub 仓库代码
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+
+      # 步骤2：安装 Node.js（工具依赖）
+      - name: 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'  # 缓存依赖，加速安装
+
+      # 步骤3：全局安装 deobfuscator（relative/synchrony 工具）
+      - name: 安装 deobfuscator 工具
+        run: |
+          npm install --global relative/synchrony#master
+
+      # 步骤4：执行反混淆（需替换“你的输入文件路径.js”为实际路径）
+      - name: 执行 JS 反混淆
+        run: |
+          # 示例：输入文件为 ./src/obfuscated.js，输出默认是 ./src/obfuscated.cleaned.js
+          # 如需自定义输出路径，可加 --output 参数，如：synchrony deobfuscate 输入路径 --output 输出路径
+          synchrony deobfuscate "你的输入文件路径.js"
+
+      # 步骤5：提交反混淆后的文件到仓库
+      - name: 提交反混淆文件
+        run: |
+          # 配置 Git 身份（必填，否则无法提交）
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          
+          # 检查输出文件是否存在（避免报错）
+          # 若自定义了输出路径，需将此处“你的输入文件路径.cleaned.js”替换为自定义输出路径
+          if [ -f "你的输入文件路径.cleaned.js" ]; then
+            git add "你的输入文件路径.cleaned.js"
+            # 提交信息可自定义
+            git commit -m "feat: 手动触发 JS 反混淆（GitHub Actions 生成）" || echo "无新内容可提交"
+            git push origin main  # 若仓库主分支不是 main，需替换为实际分支（如 master）
+          else
+            echo "反混淆后的文件不存在，跳过提交"
+          fi
+
