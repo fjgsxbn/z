@@ -26,7 +26,7 @@ jobs:
       - name: 执行反混淆（带文件检查）
         run: |
           # 1. 先确认输入文件存在（把 ./obfuscated.js 换成你的实际文件路径！）
-          INPUT_FILE="./obfuscated.js"
+          INPUT_FILE="./a.js"
           if [ ! -f "$INPUT_FILE" ]; then
             echo "❌ 错误：输入文件 $INPUT_FILE 不存在！请检查路径"
             exit 1
