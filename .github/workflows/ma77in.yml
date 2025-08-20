@@ -41,7 +41,7 @@ jobs:
           echo "✅ 找到输入文件：$INPUT_FILE"
 
           # 2. 调用本地工具（路径固定在 ./node_modules/.bin/，不会找不到）
-          synchrony deobfuscate ./obfuscated
+          synchrony deobfuscate ./a.js
 
       # 步骤6：提交反混淆后的文件到仓库（可选，需要就保留）
       - name: 提交输出文件到仓库
