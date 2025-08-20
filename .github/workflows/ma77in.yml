@@ -42,6 +42,14 @@ jobs:
            # 存入环境变量，供后续步骤调用
            echo "RAW_JS_FILENAME=$RAW_JS_FILENAME" >> "$GITHUB_ENV"
            echo "已下载原始JS文件：$RAW_JS_FILENAME"
+           NEW_JS_FILENAME="${RAW_JS_FILENAME%.js}.cleaned.js"
+           echo "按规律自动生成新文件名：$NEW_JS_FILENAME"
+
+           
+         
+
+
+           
       # 步骤5：执行反混淆（用本地命令，100% 能找到）
       - name: 本地执行 JS 反混淆
         run: |
