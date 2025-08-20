@@ -1,4 +1,4 @@
-name: JS 反混淆（本地安装工具，稳定无路径坑）
+name: JS
 on:
   workflow_dispatch:  # 仅手动触发，避免自动干扰
 
